@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Game</title>
+    <style>
+        .container{
+            width: auto;
+            text-align: center;
+            margin: auto;
+          }
+        h1{
+            margin: 30px;
+            font-family: "Lobster", cursive;
+            text-shadow: 5px 0 #232931;
+            font-size: 4.5rem;
+            color: #4ecca3;
+            text-align: center;
+        }
+
+        p {
+            font-size: 2rem;
+            color: #4ecca3;
+            font-family: "Indie Flower", cursive;
+        }
+
+        img {
+            width: 50%;
+        }
+        .dice{
+            display : inline-block;
+            margin: 10px;
+        }
+    
+        .btn{
+            background-color: darkgreen;
+            font-family: "Indie Flower", cursive;
+            border-radius: 7px;
+            font-size: 30px;
+            padding: 16px 25px 16px 25px;
+            text-decoration: none;
+        }
+
+        body {
+            background-color: #042f4b;
+            margin: 0;
+        }
+
+        .btn:hover {
+            background: #232931;
+            text-decoration: none;
+        }
+
+        .container-bottom {
+            padding-top: 30px;
+        }
+
+
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Let's Play</h1>
+    <div class ='dice'>
+        <p class="player1" >Player1</p>
+        <p>Score</p> 
+        <p class="score1">0</p>
+        <img src="dice6.png" alt="'dice6" class="img1">
+    </div>
+    <div class ='dice'>
+        <p class = 'player2'>Player2</p>
+        <p>Score</p> 
+        <p class="score2">0</p>
+        <img src="dice6.png" alt="dice6" class='img2'>
+    </div>
+
+<div class='container-bottom'>
+    <button type="button" class="btn" onclick="editNames()"> Edit Names</button>
+</div>
+<div class="container-bottom">
+    <button type="button" class="btn" id="mybtn" onclick="rollTheDice()" >Roll The Dice</button>
+</div>
+</div>
+<script>
+    let player1 = "player1";
+    let player2 = "player2";
+
+    function editNames(){
+        player1 = prompt('change the player 1 name');
+        player2= prompt('change the player 2 name')
+        if(player1.lenght<1||player2.length<1)
+    {alert('please enter valid name')
+    }
+         document.querySelector('p.player1').innerHTML = player1;
+         document.querySelector('p.player2').innerHTML = player2;
+    }
+
+    let player1score = 0;
+    let player2score = 0;
+
+    
+    function rollTheDice(){
+        let diceNum1 = document.querySelector('.img1');
+        let diceNum2 = document.querySelector('.img2');
+        diceNum1.setAttribute('src', "diceroll.gif")
+        diceNum2.setAttribute('src', "diceroll.gif")
+
+        let result = document.querySelector('h1')
+
+        setTimeout(()=>{
+
+        randomNum1 = Math.ceil(Math.random()*6)
+        randomNum2 = Math.ceil(Math.random()*6)
+
+        diceNum1.setAttribute('src', 'dice'+randomNum1+'.png');
+        diceNum2.setAttribute('src', 'dice'+randomNum2+'.png');
+
+        if(randomNum1){
+
+       player1score += randomNum1;
+       player2score += randomNum2;
+            }
+        
+        document.querySelector('p.score1').innerHTML = player1score;
+        document.querySelector('p.score2').innerHTML = player2score;
+
+        if(player1score>=10||player2score>=10){
+        document.getElementById('mybtn').disabled = true;
+    }
+
+        if(player1score>=10&&player1score>player2score){
+        result.innerHTML = `${player1} wins!`
+        }
+        else if(player2score>=10&&player2score>player1score){
+            result.innerHTML =`${player2} wins!`
+        }
+        else if(player1score>=10&&player2score>=10&&player1score===player2score){
+            result.innerHTML = 'Draw'
+        }
+       
+
+    },2500)
+    }
+
+   
+    
+
+</script>
+
+    
+</body>
+</html>

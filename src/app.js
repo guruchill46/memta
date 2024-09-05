@@ -9,6 +9,7 @@ import PostDetails from './components/PostDetails/postDetails.js';
 const App= ()=>{
     
 
+
     return(
             <BrowserRouter>
             <Container maxWidth='xl'>

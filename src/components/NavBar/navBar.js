@@ -39,11 +39,15 @@ const Navbar = () => {
         //console.log('useEfeect ')
     },[location])// eslint-disable-line react-hooks/exhaustive-deps
 
+    const handleClickImage = () =>{
+        window.open("/dicegame.html","_blank")
+    }
+
   return (
     <AppBar className={styless.appBar} position='static' color='inherit'>
                 <div className={styless.brandContainer}>
                     <Typography className={styless.heading} variant='h2' align='center' component={Link} to="/" >MEMTA</Typography>
-                <img className={styless.image} src={memta} alt='memta' height='60'></img>
+                <img onClick={handleClickImage} className={styless.image} src={memta} alt='memta' height='60'></img>
                 </div>
                 <Toolbar className={styless.toolbar}>
                     {user?(
