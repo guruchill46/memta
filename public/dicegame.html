@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=0.1">
     <title>Dice Game</title>
     <link rel="stylesheet" type="text/css" href="dicegame.css" >
 </head>
 <body onclick='addValidName()'>
 <div class="container">
     <div class = 'popup' id="popup">
-            <h2>Game Over</h2>
+            <h2>12345678901234</h2>
             <div class ='winResult'>
                 <div class='name'> <p class="player1Win">Player1</p>
                 <p>Score</p> 
@@ -30,7 +30,7 @@
             <img src="pics/edit_icon.png" alt="edit" class="edit" id="edit1" onclick="edit1f()" ></div>
         <p>Score</p> 
         <p class="score1">0</p>
-        <div><img src="pics/dice6.png" alt="dice6" class="img1"></div> 
+        <div><img src="pics/dice6.png" alt="dice6" class="img1" id="imgd"></div> 
         <div><button type="button" class="btn" id="mybtn1" onclick="rollTheDice1()" >Roll The Dice</button></div>
     </div>
     <div class ='dice'>
@@ -38,7 +38,7 @@
             <img src="pics/edit_icon.png" alt="edit" class="edit" id="edit2" onclick="edit2f()" ></div>
         <p>Score</p> 
         <p class="score2">0</p>
-        <div><img src="pics/dice6.png" alt="dice6" class='img2'></div>
+        <div><img src="pics/dice6.png" alt="dice6" class='img2' id="imgd2"></div>
         <div><button type="button" class="btn" id="mybtn2" onclick="rollTheDice2()">Roll The Dice</button></div>
     </div>
 </div>
@@ -46,7 +46,7 @@
 <div class='container-bottom'>
     <button type="button" class="btn" id="playbtn" onclick="clickToPlay()"> Click To Play</button>
 </div>
-<button class="btn" type='button' onclick="resetscore()">Reset</button>
+<button class="btn resetbtn" type='button' onclick="resetscore()">Reset</button>
 </div>
 <script src="dicegame.js"></script>
 

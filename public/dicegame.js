@@ -4,8 +4,8 @@
     let player2Turn = false;
     let popup = document.getElementById('popup');
     let result = document.querySelector('h2');
-    let diceNum1 = document.querySelector('.img1');
-    let diceNum2 = document.querySelector('.img2');
+    let diceNum1 = document.querySelector('#imgd');
+    let diceNum2 = document.querySelector('#imgd2');
     let mainTitleChange = document.querySelector('h1');
     let titleChange = document.querySelector('h3');
     let field1 = document.querySelector('p.player1');
@@ -31,7 +31,7 @@
     function clickToPlay(){
 
         document.getElementById('mybtn1').disabled= false;
-        document.getElementById('mybtn2').disabled= false;
+        //document.getElementById('mybtn2').disabled= false;
         document.getElementById('playbtn').disabled= true;
         player1 = field1.childNodes[0].textContent;
         player2 = field2.childNodes[0].textContent;
@@ -56,18 +56,15 @@
         document.getElementById('mybtn1').disabled= true;
         if(player1Turn===true&&round<21){
 
-        setTimeout(()=>{diceNum1.classList.replace('img1','dice1gif');}
-            ,0)       
-        diceNum1.setAttribute('src', "pics/diceroll.gif");
-         
-
+        diceNum1.outerHTML = '<img src="pics/diceroll.gif" alt="diceroll" class="dice1gif" id="imgd">'
+        diceNum1 = document.querySelector('#imgd');    
         setId = setTimeout(()=>{
             
 
-        randomNum1 = Math.ceil(Math.random()*6)
-
-        diceNum1.classList.replace('dice1gif','img1');
-        diceNum1.setAttribute('src', 'pics/dice'+randomNum1+'.png');
+        randomNum1 = Math.ceil(Math.random()*6);
+        
+        diceNum1.outerHTML =`<img src="pics/dice${randomNum1}.png" alt="dice" class="img1" id="imgd">`
+        diceNum1 = document.querySelector('#imgd');    
 
         if(randomNum1){
 
@@ -88,19 +85,17 @@
         document.getElementById('mybtn2').disabled= true;
 
         if(player2Turn===true&&round<21){
-        diceNum2.setAttribute('src', "pics/diceroll.gif");
-        setTimeout(()=>{diceNum2.classList.replace('img2','dice1gif');}
-            ,0)       
-        diceNum2.setAttribute('src', "pics/diceroll.gif");
+
+        diceNum2.outerHTML = '<img src="pics/diceroll.gif" alt="diceroll" class="dice1gif" id="imgd2">'
+        diceNum2 = document.querySelector('#imgd2');       
 
         setTimeout(()=>{
 
         randomNum2 = Math.ceil(Math.random()*6)
-        diceNum2.classList.replace('dice1gif', 'img2')
-        diceNum2.setAttribute('src', 'pics/dice'+randomNum2+'.png');
+        diceNum2.outerHTML =`<img src="pics/dice${randomNum2}.png" alt="dice" class="img1" id="imgd2">`
+        diceNum2 = document.querySelector('#imgd2');
 
         if(randomNum2){
-
        player2score += randomNum2;
             }
         
@@ -185,7 +180,7 @@
             field1.contentEditable = false;
             field1.innerHTML = field1.childNodes[0].textContent.slice(0,13)
             clearInterval(stopInt1);
-            alert('Player name should be less than 13 Characters')
+            alert(  'Player name should be less than 13 Characters')
             
         }
        },500) 
