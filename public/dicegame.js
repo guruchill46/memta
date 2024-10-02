@@ -22,7 +22,7 @@
     let stopInt1_array = [];
     let stopInt2;
     let stopInt2_array = [];
-
+    let isZoomed = false;
     document.getElementById('mybtn1').disabled= true;
     document.getElementById('mybtn2').disabled= true;
     
@@ -56,14 +56,22 @@
         document.getElementById('mybtn1').disabled= true;
         if(player1Turn===true&&round<21){
 
+            if(isZoomed){
+                diceNum1.outerHTML = '<img src="pics/diceroll.gif" alt="diceroll" class="dice1gifZoom" id="imgd">'
+        diceNum1 = document.querySelector('#imgd');}
+        else{
         diceNum1.outerHTML = '<img src="pics/diceroll.gif" alt="diceroll" class="dice1gif" id="imgd">'
-        diceNum1 = document.querySelector('#imgd');    
+        diceNum1 = document.querySelector('#imgd');}    
         setId = setTimeout(()=>{
             
 
         randomNum1 = Math.ceil(Math.random()*6);
-        
+        if(isZoomed){
+            diceNum1.outerHTML =`<img src="pics/dice${randomNum1}.png" alt="dice" class="img1 img1Zoom" id="imgd">`    
+        }
+        else{
         diceNum1.outerHTML =`<img src="pics/dice${randomNum1}.png" alt="dice" class="img1" id="imgd">`
+    }
         diceNum1 = document.querySelector('#imgd');    
 
         if(randomNum1){
@@ -85,14 +93,23 @@
         document.getElementById('mybtn2').disabled= true;
 
         if(player2Turn===true&&round<21){
-
-        diceNum2.outerHTML = '<img src="pics/diceroll.gif" alt="diceroll" class="dice1gif" id="imgd2">'
+        
+        if(isZoomed){
+            diceNum2.outerHTML = '<img src="pics/diceroll.gif" alt="diceroll" class="dice1gifZoom" id="imgd2">'    
+        }    
+        else{
+        diceNum2.outerHTML = '<img src="pics/diceroll.gif" alt="diceroll" class="dice1gif" id="imgd2">'}
         diceNum2 = document.querySelector('#imgd2');       
 
         setTimeout(()=>{
 
         randomNum2 = Math.ceil(Math.random()*6)
-        diceNum2.outerHTML =`<img src="pics/dice${randomNum2}.png" alt="dice" class="img1" id="imgd2">`
+        if(isZoomed){
+            diceNum2.outerHTML =`<img src="pics/dice${randomNum2}.png" alt="dice" class="img2 img2Zoom" id="imgd2">`
+        }
+        else{
+        diceNum2.outerHTML =`<img src="pics/dice${randomNum2}.png" alt="dice" class="img2" id="imgd2">`
+        }
         diceNum2 = document.querySelector('#imgd2');
 
         if(randomNum2){
@@ -131,7 +148,11 @@
         score2Win.innerHTML=player2score;    
         document.getElementById('mybtn1').disabled = true;
         document.getElementById('mybtn2').disabled = true;
-        popup.classList.add('open-popup');
+        if(isZoomed){
+            popup.classList.add('open-popupZoom')
+        }
+        else{
+        popup.classList.add('open-popup');}
         
     }
     document.getElementById('mybtn1').disabled= false;
@@ -162,6 +183,9 @@
             titleChange.innerHTML = 'Total Rounds 20';
             document.getElementById('mybtn1').disabled= true;
             document.getElementById('mybtn2').disabled= true;
+            if(isZoomed){
+                popup.classList.remove('open-popupZoom');
+            }
 
         }
 
@@ -243,3 +267,106 @@
             alert('Please enter a valid player name')}
 
     }
+
+        
+
+    window.addEventListener("resize", ()=>{
+        
+        let h1Zoom = document.querySelector('h1');
+        let htmlZoom = document.querySelector('html');
+        let containerZoom = document.querySelector('.container');
+        let h3Zoom = document.querySelector('h3');
+        let pZoom = document.querySelectorAll('p');
+        // console.log(pZoom)
+        let player1Zoom = document.querySelector('.player1');
+        let player2Zoom = document.querySelector('.player2');
+        let img1Zoom = document.querySelector('.img1');
+        let dice1gifZoom = document.querySelector('.dice1gif');
+        let img2Zoom = document.querySelector('.img2');
+        let diceZoom = document.querySelectorAll('.dice');
+        let flexContainerZoom = document.querySelector('.flex-container');
+        let btnZoom = document.querySelectorAll('.btn');
+        let bodyZoom = document.querySelector('body');
+        let popupZoom = document.querySelector('.popup');
+        let openPopupZoom = document.querySelector('.open-popupZoom');
+        let openPopup = document.querySelector('.open-popup');
+        let h2Zoom = document.querySelector('h2');
+        let nameZoom = document.querySelector('.name');
+        let editZoom = document.querySelectorAll('.edit');
+
+        let h1fontSize = window.getComputedStyle(h1Zoom, null).getPropertyValue('font-size');
+        htmlZoom.style.fontSize = h1fontSize;
+        // console.log(htmlZoom.style.fontSize)
+        // console.log(h1Zoom.style.fontSize)
+
+        // if(window.outerWidth>1030){
+        // tett.classList.add('tet')}
+        // if(window.innerWidth<1030){
+        //     tett.classList.remove('tet')
+        // }
+        let zoom= ((window.outerWidth-10)/window.innerWidth)*100;
+        let height = window.innerHeight/window.outerHeight
+        // console.log(window.innerHeight)
+        if(window.innerWidth<1030&&zoom>122&&height<0.88){
+            isZoomed = true;
+            h1Zoom.classList.add('h1Zoom')
+            // console.log(containerZoom)
+            containerZoom.classList.add('containerZoom')
+            h3Zoom.classList.add('h3Zoom')
+            pZoom.forEach((p)=>p.classList.add('pZoom'))
+            player1Zoom.classList.add('player1Zoom')
+            player2Zoom.classList.add('player2Zoom')
+            if(img1Zoom!==null){
+            img1Zoom.classList.add('img1Zoom')}
+            if(dice1gifZoom!==null){
+                dice1gifZoom.classList.add('dice1gifZoom')
+            }
+            if(img2Zoom!==null){
+            img2Zoom.classList.add('img2Zoom')}
+            diceZoom.forEach(dice=>dice.classList.add('diceZoom'))
+            flexContainerZoom.classList.add('flex-containerZoom')
+            btnZoom.forEach(btnZoom=>btnZoom.classList.add('btnZoom'))
+            bodyZoom.classList.add('bodyZoom')
+            if(openPopup===null){
+            popupZoom.classList.add('popupZoom')}
+            if(openPopup!==null){
+                popupZoom.classList.add('popupZoom','open-popupZoom')
+            }
+            h2Zoom.classList.add('h2Zoom')
+            nameZoom.classList.add('nameZoom')
+            editZoom.forEach(editZoom=>editZoom.classList.add('editZoom'))
+
+            // console.log(window.innerWidth)
+            // console.log(`out${window.outerWidth}`)
+        }
+        if(window.innerWidth>1030&&height<0.88){
+            isZoomed= false;
+            h1Zoom.classList.remove('h1Zoom')
+            containerZoom.classList.remove('containerZoom')
+            h3Zoom.classList.remove('h3Zoom')
+            pZoom.forEach((p)=>p.classList.remove('pZoom'))
+            player1Zoom.classList.remove('player1Zoom')
+            player2Zoom.classList.remove('player2Zoom')
+            if(img1Zoom!==null){
+            img1Zoom.classList.replace('img1Zoom', 'img1')}
+            if(img2Zoom!==null){
+            img2Zoom.classList.replace('img2Zoom', 'img2')}
+            if(dice1gifZoom!==null){
+                dice1gifZoom.classList.remove('dice1gifZoom')
+            }
+
+            diceZoom.forEach(dice=>dice.classList.remove('diceZoom'))
+            flexContainerZoom.classList.remove('flex-containerZoom')
+            btnZoom.forEach(btnZoom=>btnZoom.classList.remove('btnZoom'))
+            bodyZoom.classList.remove('bodyZoom')
+            popupZoom.classList.remove('popupZoom')
+            if(openPopupZoom!==null){
+                // console.log('hi');
+                openPopupZoom.classList.replace('open-popupZoom', 'open-popup')
+            }
+            h2Zoom.classList.remove('h2Zoom')
+            nameZoom.classList.remove('nameZoom')
+            editZoom.forEach(editZoom=>editZoom.classList.remove('editZoom'))
+        }
+        // console.log(`inh${window.innerHeight}&&outh${window.outerHeight}`)
+     })
