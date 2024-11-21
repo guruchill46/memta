@@ -1,0 +1,36 @@
+
+.appb-m {
+    border-radius: 15;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 10px;
+   
+  }
+.pic-m{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 10px;
+    align-items: center;
+
+}  
+.toolbar-m{
+    display: flex;
+    justify-content: flex-end;
+    width: 400px;
+}
+
+.user-m{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.log-m{
+    margin-top:2px;
+    align-items: center;
+   margin-left: 20px;
+}  

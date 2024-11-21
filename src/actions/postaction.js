@@ -96,3 +96,60 @@ export const commentPost=(finalComment, id)=>async (dispatch)=>{
         console.log(error);
     }
 }
+
+//crm
+
+export const crmPost = ()=>async(dispatch)=>{
+    try{
+        const {data} =await api.crmPost()
+        // console.log(data)
+        return data;
+        
+    }
+    catch(error){
+        console.log(error)
+    }
+}
+
+export const clientIGet=()=>async(dispatch)=>{
+    try{
+        const {data} = await api.clientIGet();
+        // console.log(data)
+        return data;
+    }
+    catch(error){
+        console.log(error)
+    }
+}
+
+export const statusCI=(statusData, id)=>async(dispatch)=>{
+    try{
+        const {data} = await api.statusCI(statusData, id);
+        // console.log(data)
+        return data;
+    }
+    catch(error){
+        console.log(error)
+    }
+}
+
+export const staffS=(staffId, id)=>async(dispatch)=>{
+    try{
+        const {data} = await api.staffS(staffId, id);
+        return data;
+    }
+    catch(error){
+        console.log(error)
+    }
+}
+
+export const staffNote=(note, id)=>async(dispatch)=>{
+    try{
+        const {data} = await api.staffNote(note, id);
+        // console.log(data)
+        return data;
+    }
+    catch(error){
+        console.log(error)
+    }
+}

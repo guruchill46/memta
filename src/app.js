@@ -1,28 +1,18 @@
-////////////src/app.js
-import {Container} from '@material-ui/core';
-import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom';
-import Navbar from './components/NavBar/navBar.js';
-import Home from './components/Home/home.js';
-import Auth from './components/Auth/auth.js';
-import PostDetails from './components/PostDetails/postDetails.js';
+import React from 'react';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import Appmain from './appmain.js';
+import Crmmain from './crmmain.js';
 
-const App= ()=>{
-    
+const App =()=>{
 
 
     return(
-            <BrowserRouter>
-            <Container maxWidth='xl'>
-                <Navbar/>
-            <Routes>
-                <Route path="/" exact element={<Navigate to ='/posts' replace/>}/>
-                <Route path='/posts' exact element={<Home/>}/>
-                <Route path='/posts/search' exact element ={<Home/>} />
-                <Route path="/auth" exact element={<Auth/>}/>
-                <Route path='/posts/:id' exact element={<PostDetails/>}  />
-            </Routes>
-            </Container>
-            </BrowserRouter>
+        <BrowserRouter>
+        <Routes>
+            <Route path="/crm/*" element={<Crmmain/>}/>
+            <Route path="*" element={<Appmain/>} />
+        </Routes>
+        </BrowserRouter>
     )
 }
 
