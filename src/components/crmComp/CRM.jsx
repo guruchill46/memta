@@ -31,8 +31,7 @@ const CRM = () => {
     dispatch(clientIGet()).then(
       (x)=>{
        if(user?.result?.role==='Team Lead')
-         {setDataMapd(x)
-          console.log(x)}
+         {setDataMapd(x)}
           else{
             const dataFO = x.filter((x)=>user?.result?._id.includes(x.AssignedTo))
             setDataMapd(dataFO)

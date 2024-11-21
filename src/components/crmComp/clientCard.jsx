@@ -42,7 +42,6 @@ const Row=({row, socket})=> {
   
   const handleChangeTeam = (event) => {
     setStaff(event.target.value)
-    console.log(event.target.value)
     // console.log(row._id)
     const Data = {staffId: event.target.value}
     dispatch(staffS(Data, row._id)).then(()=>{socket.emit('update')});
