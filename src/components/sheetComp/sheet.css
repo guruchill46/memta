@@ -1,16 +1,16 @@
-.table-con.css-11xur9t-MuiPaper-root-MuiTableContainer-root {
+.table-con.MuiTableContainer-root {
    background-color: #A9B4BE;
    border-radius: 0px;
 }
-.coll-table.css-1ex1afd-MuiTableCell-root{
+.coll-table.MuiTableCell-root{
     border-bottom: 0px;
 }
-.grid-2.css-x3vexg-MuiGrid2-root{
+.grid-2.MuiGrid2-root{
     margin:auto;
 }
-.item-coll.css-1633um2-MuiPaper-root{
+.item-coll.MuiPaper-root{
     background-color: #D5DADD;
 }
-.appbar.css-hip9hq-MuiPaper-root-MuiAppBar-root{
+.appbar.MuiAppBar-root{
     background-color: #223548;
 }
