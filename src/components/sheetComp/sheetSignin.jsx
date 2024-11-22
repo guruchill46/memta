@@ -9,9 +9,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import {createTheme, ThemeProvider} from '@mui/material/styles';
-import {useDispatch} from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import {signIn} from '../../actions/authcrm.js';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import InputAdornment from '@mui/material/InputAdornment';
@@ -36,8 +34,6 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 
 export default function SignIn() {
-
-  const [formData, setFormData] = React.useState({email: '', password: ''})
   const [showPassword, setShowPassword] = React.useState(false)
   
   const handleShowPassword = ()=>{
@@ -52,8 +48,6 @@ export default function SignIn() {
     event.preventDefault();
     navigate('/sheet');
   };
-
-  const dispatch = useDispatch();
   // const styless = useStyles();
   const navigate = useNavigate();
 

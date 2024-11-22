@@ -9,16 +9,9 @@ import TableBody from '@mui/material/TableBody';
 import Paper from '@mui/material/Paper';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-import { useDispatch } from 'react-redux';
-import {statusCI, staffS, staffNote} from '../../actions/postaction.js';
 import Grid from '@mui/material/Unstable_Grid2';
 import { styled } from '@mui/material/styles';
 import Stack from '@mui/material/Stack';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
 import './sheet.css';
 
 
@@ -26,20 +19,6 @@ import './sheet.css';
   const Row=({row})=> {
 
   const [open, setOpen] = React.useState(false);
-  const [age, setAge] = React.useState(row.ActionTaken);
-  const dispatch = useDispatch();
-  const user = JSON.parse(localStorage.getItem('profile'))
-  const [staff, setStaff] = React.useState(row.AssignedTo)
-  const [note, setNote] = React.useState(row.noteInfo)
-  const [noteC, setNoteC] = React.useState(row.noteInfo)
-  const [isBtnDisabled, setIsBtnDisabled] = React.useState(false)
-
-  React.useEffect(()=>{
-  setAge(row.ActionTaken)
-  setStaff(row.AssignedTo)
-  setNote(row.noteInfo)
-  setNoteC(row.noteInfo)
-  },[row.ActionTaken, row.AssignedTo, row.noteInfo])
  
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: '#fff',

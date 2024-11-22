@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { useDispatch } from 'react-redux';
-import {crmPost,clientIGet, crmSheet} from '../../actions/postaction.js';
+import {crmPost, crmSheet} from '../../actions/postaction.js';
 import Paper from '@mui/material/Paper';
 import RowSheet from './rowSheet.jsx';
 import Table from '@mui/material/Table';
@@ -9,7 +9,6 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import io from 'socket.io-client';
 import './sheet.css';
 
 // const socket = io.connect("http://localhost:5000");
@@ -19,7 +18,6 @@ const CRM = () => {
   
  const [dataMapd, setDataMapd] = useState('');
  const dispatch = useDispatch();
- const user = JSON.parse(localStorage.getItem('profile'));
 
  const handleClick =async()=>{
 
