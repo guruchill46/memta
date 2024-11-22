@@ -153,3 +153,24 @@ export const staffNote=(note, id)=>async(dispatch)=>{
         console.log(error)
     }
 }
+
+export const crmSheet = ()=>async(dispatch)=>{
+    try{
+        const {data} = await api.crmSheet()
+        // console.log(value)
+        const answers = [];
+        const rows = data.values;
+        if(rows.length){
+            rows.shift()
+            for(const row of rows){
+                answers.push({ClientName:row[0],PhoneNumber:row[1],Email:row[2],address:row[3],comment:row[4]})
+            }
+        }
+        console.log(answers)
+        return answers;
+        
+    }
+    catch(error){
+        console.log(error)
+    }
+}

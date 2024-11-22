@@ -33,3 +33,5 @@ export const clientIGet=()=>API.get('/crm/cget')
 export const statusCI=(statusData, id)=>API.patch(`/crm/${id}`, statusData)
 export const staffS=(staffId, id)=>API.patch(`/crm/Assign/${id}`,staffId)
 export const staffNote=(note, id)=>API.patch(`/crm/Note/${id}`,note)
+
+export const crmSheet=()=>API.get('/crm/sheets')

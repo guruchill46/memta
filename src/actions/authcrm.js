@@ -5,7 +5,7 @@ export const signUp =(formData, navigate)=>async(dispatch)=>{
     try{
         const {data} = await api.crmSignUp(formData)
         dispatch({type: 'AUTH', payload: data})
-        console.log(data)
+        // console.log(data)
         navigate('/crm')
     }
     catch(error){
